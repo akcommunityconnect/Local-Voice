@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Project Local Voice</title>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; }
+        html, body { margin: 0; overflow-x: hidden; }
+        .TOPBAR-MAIN {
+                background-color: White;
+                height: 100px;
+                width: 100%;
+                margin-bottom: 20px;
+                border-bottom: 1px solid lightgray;
+                justify-content: center;
+                align-items: center;
+                display: flex;
+
+            }
+
+            .TOPBAR-BUTTON-A {
+                background-color: White;
+                border: none;
+                font-size: 90px;
+                font-weight: bold;
+                color: black;
+                cursor: pointer;
+                align-items: center;
+                font-family: Century Gothic, sans-serif;
+                margin-top: -20px;
+            }
+
+            .TOPBAR-BUTTON-B {
+                background-color: transparent;
+                border: none;
+                font-size: 90px;
+                font-weight: bold;
+                color: black;
+                cursor: pointer;
+                align-items: center;
+                font-family: Century Gothic, sans-serif;
+                margin-left: -12px;
+                margin-bottom: -5px;
+                margin-top: -20px;
+            }
+
+            .TEXT-SCROLL-A {
+                background-color: White;
+                height: 30px;
+                width: 100%;
+                font-size: 10px;
+                font-family: Century Gothic, sans-serif;
+                color: black;
+                border-bottom: 1px solid lightgray;
+                overflow: hidden;
+            }
+
+            .CONTENT {
+                background-color: White;
+                height: 100%;
+                width: 100%;
+                justify-content: center;
+                align-items: center;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .B-A {
+                background-color: white;
+                border-radius: 20px;
+                justify-content: center;
+                align-items: center;
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+                width: 100%;
+            }
+
+            .I-A {
+                font-weight: bold;
+                font-size: 50px;
+                font-family: Century Gothic, sans-serif;
+            }
+
+            .I-B {
+                font-size: 20px;
+                font-family: Century Gothic, sans-serif;
+                text-align: center;
+                width: 80%;
+            }
+
+            .P-A {
+                height: 50px;
+                width: 50px;
+                margin-top: 20px;
+            }
+
+            .OUR-PROJECTS {
+                background-color: White;
+                height: 100%;
+                width: 100%;
+                margin-top: 20px;
+                justify-content: center;
+                align-items: center;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .C-B {
+                font-weight: bold;
+                font-size: 30px;
+                font-family: Century Gothic, sans-serif;
+                text-align: center;
+            }
+
+            .I-C {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 20px;
+
+            }
+
+            .B-B {
+                height: auto;
+                width: 400px;
+                margin-top: 20px;
+                margin: 20px 0 0;
+                border: 1px solid lightgray;
+                border-radius: 20px;
+                transition: transform 0.3s ease-in-out;
+            }
+            .B-B:hover {
+                transform: scale(1.05);
+                transition: transform 0.3s ease-in-out;
+            }
+
+            .I-D {
+                background-color: White;
+                height: 100%;
+                width: 100%;
+                margin-top: 20px;
+                justify-content: center;
+                align-items: center;
+                display: flex;
+                flex-direction: row;
+            }
+
+            .CREDITS {
+                background-color: lightgrey;
+                justify-content: center;
+                align-items: center;
+                display: flex;
+                flex-direction: column;     
+                height: 200px;
+                width: 100%;
+            }
+
+            .I-D {
+                font-weight: bold;
+                font-size: 20px;
+                font-family: Century Gothic, sans-serif;
+                text-align: center;
+            }
+
+            .USER-A {
+                background-color: White;
+                height: 100px;
+                width: 100%;
+                border: none;
+                justify-content: center;
+                align-items: center;
+                display: flex;
+                font-size: 30px;
+                font-family: Calisto MT, sans-serif;
+            }
+            
+            .USER-B {
+                background-color: White;
+                height: 510px;
+                width: min(1050px, calc(100vw - 32px));
+                border-radius: 20px;
+                border: 1px solid black;
+                justify-content: center;
+                align-items: center;
+                display: flex;
+                font-size: 20px;
+                font-family: Calisto MT, sans-serif;
+            }
+
+            .USER-C {
+                background-color: White;
+                height: calc(100% - 10px);
+                width: calc(100% - 20px);
+                border: none;
+                justify-content: center;
+                align-items: center;
+                display: flex;
+                font-size: 30px;
+                font-family: Calisto MT, sans-serif;
+            }
+
+            .USER-C:hover {
+                outline: none;
+            }
+
+            .USER-C:focus {
+                outline: none;
+            }
+
+            .SEND-BUTTON {
+                margin: 14px 0 26px;
+                padding: 10px 32px;
+                border: 0;
+                border-radius: 999px;
+                background: #2814f5;
+                color: white;
+                font: 600 18px "Century Gothic", sans-serif;
+                cursor: pointer;
+            }
+
+            .SEND-BUTTON:disabled { opacity: .65; cursor: wait; }
+            .FORM-STATUS { min-height: 22px; font: 16px "Century Gothic", sans-serif; }
+
+            .NEWS-MAIN {
+                height: 50px;
+                font-size: 45px;
+                font-family: CENTURY GOTHIC;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+            }
+
+            .NEWS {
+                background-color: White;
+                height: 690px;
+                width: 100%;
+                padding: 0 24px;
+                justify-content: center;
+                align-items: center;
+                display: flex;
+                flex-direction: column;
+
+            }
+
+            .NEWS-A {
+                background-color: transparent;
+                border: 1px solid black;
+                border-radius: 20px;
+                height: 607px;
+                width: 1080px;
+                overflow: hidden;
+                cursor: pointer;
+            }
+            
+            .NEWS-B {
+                height: 100%;
+                width: 100%;
+                border-radius: 20px;
+                display: block;
+                object-fit: contain;
+            }
+            
+            .NEWS-C {
+                height: 100%;
+                width: 100%;
+                border-radius: 20px;
+                display: block;
+                object-fit: contain;
+            }
+
+            /* Show one news card at a time; the track itself can remain wider. */
+            
+            .news-track { display: flex; width: max-content; animation: news-scroll 75s linear infinite; }
+
+            @keyframes news-scroll {
+                to { transform: translateX(-50%); }
+            }
+
+
+            
+            
+    </style>
+</head>
+<body>
+        <div>
+            <div class="TOPBAR-MAIN">
+            <button class="TOPBAR-BUTTON-A">
+                Envir
+            </button>
+            <button class="TOPBAR-BUTTON-B">
+                <img src="logo-img.png" height="55px">
+            </button>
+            </div>
+        </div>
+        <div>
+            <marquee class="TEXT-SCROLL-A">
+                Welcome to Local Voice
+            </marquee>
+        </div>
+        <div class="CONTENT">
+            <section class="B-A">
+                <h1 class="I-A">
+                    WELCOME TO LOCAL VOICE
+                </h1>
+                <p class="I-B">
+                    Local Voice is a dedicated platform where individuals can report local environmental issues directly to Enviro by AK, either publicly or privately. Our primary objective is to gather crowd-sourced data regarding destructive activities harming local ecosystems. Using this information, our company deploys planned, strategic actions to effectively address and resolve these environmental threats.
+                </p>
+            </section>
+            <form id="report-form" novalidate>
+                <div class="USER-A">
+                    What's the problem you're dealing with? 
+                </div>
+                <div class="USER-B">
+                    <textarea id="report-message" class="USER-C" placeholder="Type your message here..." aria-label="Describe the environmental issue" maxlength="1800" required></textarea>
+                </div>
+                <button class="SEND-BUTTON" type="submit">Send</button>
+                <div id="form-status" class="FORM-STATUS" role="status" aria-live="polite"></div>
+            </form>
+        </div>
+
+        <div class="NEWS-MAIN">
+            <P>News</p>
+        </div>
+
+        <div class="NEWS">
+            <div>
+                <div class="news-track">
+                    <div>
+                        <button class="NEWS-A" onclick="window.open('https://indianexpress.com/article/cities/mumbai/maharashtra-clears-83700-sq-ft-forest-land-for-2-adani-group-projects-10827189/', '_blank')">
+                            <img src="12-08-2026.png" class="NEWS-B">
+                        </button>
+                        <button class="NEWS-A" onclick="window.open('https://www.youtube.com/watch?v=76anKo9wYdI', '_blank')">
+                            <video class="NEWS-C" autoplay muted loop playsinline>
+                                <source src="Save-Shivalik.mp4" type="video/mp4">
+                            </video>
+                        </button>
+                        <button class="NEWS-A" onclick="window.open('https://www.theguardian.com/environment/2026/may/20/rainforests-pushed-to-breaking-point-by-new-demands-for-resources-report-says#:~:text=All%20three%20are%20forecast%20to%20continue%20expanding.,is%20affecting%20all%20three%20rainforest%20basins%20(Amazon%2C', '_blank')">
+                            <img src="Amazon.png" class="NEWS-B">
+                        </button>
+                        <button class="NEWS-A" onclick="window.open('https://www.carbonbrief.org/cropped-6-may-2026-forest-loss-falls-deforestation-regulations-saving-indias-galapagos#:~:text=Forest%20loss%20falls.%20DRIVER%20DECLINE%3A%20Tropical%20primary,higher%20than%20%5Bit%20was%5D%20a%20decade%20ago%E2%80%9D.', '_blank')">
+                            <img src="N1.png" class="NEWS-B">
+                        </button>
+                        <button class="NEWS-A" onclick="window.open('https://www.sciencedaily.com/releases/2026/02/260217005714.htm#:~:text=%22Climate%20change%20is%20accelerating%20but%20nature%20is,out%20of%20oxygen%20%E2%80%94%20and%20climate%20change', '_blank')">
+                            <img src="N2.png" class="NEWS-B">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="NEWS-MAIN">
+            <p style="font-family: CENTURY GOTHIC;">BUT DO YOU KNOW!</p>
+        </div>
+
+        <div class="NEWS">
+            <div>
+                <div class="news-track">
+                    <div>
+                        <button class="NEWS-A">
+                            <img src="a.png" class="NEWS-B">
+                        </button>
+                        <button class="NEWS-A">
+                            <img src="b.png" class="NEWS-B">
+                        </button>
+                        <button class="NEWS-A">
+                            <img src="c.png" class="NEWS-B">
+                        </button>
+                        <button class="NEWS-A">
+                            <img src="d.png" class="NEWS-B">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="OUR-PROJECTS">
+            <h2 class="C-B">
+                DEVELOPERS
+            </h2>
+            <div class="I-C">
+                <button style="border: none; background-color: transparent; align-items: center; justify-content: center;">
+                    <img src="1.png" class="B-B">
+                </button>
+                <button style="border: none; background-color: transparent; align-items: center; justify-content: center;">
+                    <img src="Hightech-LOGO (L).png" class="B-B">
+                </button>
+                <button style="border: none; background-color: transparent; align-items: center; justify-content: center;">
+                    <img src="AK-COMMUNITY-CONNECT (L).png" class="B-B">
+                </button>
+            </div>
+        </div>
+        
+    <script>
+        // Duplicate each carousel's slide list so its animation can loop.
+        document.querySelectorAll('.news-track').forEach((newsTrack) => {
+            const newsItems = newsTrack.querySelector('.news-items');
+            if (!newsItems) return;
+            const newsCopy = newsItems.cloneNode(true);
+            newsCopy.setAttribute('aria-hidden', 'true');
+            newsTrack.appendChild(newsCopy);
+        });
+
+        document.getElementById('report-form').addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const messageField = document.getElementById('report-message');
+            const status = document.getElementById('form-status');
+            const message = messageField.value.trim();
+            if (!message) {
+                status.textContent = 'Please enter a message first.';
+                return;
+            }
+
+            const submitButton = event.currentTarget.querySelector('[type="submit"]');
+            submitButton.disabled = true;
+            status.textContent = 'Sending...';
+            let awaitingConfirmation = false;
+            try {
+                // Paste your deployed Google Apps Script Web App URL here.
+                const googleScriptUrl = 'https://script.google.com/macros/s/AKfycbxnM-4csh4w_QLYZY_7A3vNcKIFY6chMSQwtvWc5-VvuVBrngcyDl4rwRMWUVVkK1-y9A/exec';
+                if (googleScriptUrl.includes('PASTE_YOUR')) {
+                    status.textContent = 'Report saving is being configured. Please add the Google Apps Script URL.';
+                    return;
+                }
+                const callbackName = `localVoiceReport${Date.now()}${Math.floor(Math.random() * 100000)}`;
+                const requestScript = document.createElement('script');
+                let confirmationTimer;
+                const cleanUp = () => {
+                    window.clearTimeout(confirmationTimer);
+                    delete window[callbackName];
+                    requestScript.remove();
+                    submitButton.disabled = false;
+                };
+
+                window[callbackName] = (result) => {
+                    if (result && result.success) {
+                        messageField.value = '';
+                        status.textContent = `Your report has been sent successfully. Your Report ID is ${result.reportId}.`;
+                    } else {
+                        status.textContent = (result && result.error) || 'Your report could not be sent. Please try again.';
+                    }
+                    cleanUp();
+                };
+                requestScript.onerror = () => {
+                    status.textContent = 'Unable to receive a Report ID. Please deploy the latest Apps Script version and try again.';
+                    cleanUp();
+                };
+                requestScript.src = `${googleScriptUrl}?${new URLSearchParams({ action: 'submit', callback: callbackName, message })}`;
+                awaitingConfirmation = true;
+                document.head.appendChild(requestScript);
+                confirmationTimer = window.setTimeout(() => {
+                    status.textContent = 'Unable to receive a Report ID. Please deploy the latest Apps Script version and try again.';
+                    cleanUp();
+                }, 15000);
+                return;
+            } catch (error) {
+                status.textContent = 'Your report could not be sent. Please try again.';
+            } finally {
+                if (!awaitingConfirmation) submitButton.disabled = false;
+            }
+        });
+    </script>
+
+    <div style="height: 200px; width: 100%; background-color: rgb(232, 232, 232); display: flex; flex-direction: row; margin-top: 50px; align-items: center; justify-content: center; text-align: center; font-family: Century Gothic;">
+        <br>ENVIRO by AK copyrighted content 2026</br>
+        <br>Developed by Hightech by AK</br>
+        <br>Maintained by AK Community Connect</br>
+        <br>VERSION: AK.E:01.H:01.AKCC:01.O:01</br>
+    </div>
+</body>
+</html>
